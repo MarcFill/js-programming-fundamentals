@@ -156,7 +156,8 @@ function isNotGreat() {
     return ' who?';
 }
 function judgePerson(person, cb) {
-    // Your code here.
+    str = person.first + ' ' + person.last + cb();
+    console.log(str);
 }
 
 judgePerson(brendan, isGreat);
@@ -178,9 +179,10 @@ judgePerson(brendan, isNotGreat);
 // youngest to older.
 persons = [ brendan, linus ];
 
-persons.sort(
-    // Define a comparator function in here.
-);
+persons.sort(function(a, b) {
+    if (a.year < b.year) return 1;
+    return -1;
+});
 persons;
 
 
