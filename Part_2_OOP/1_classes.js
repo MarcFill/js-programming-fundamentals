@@ -25,10 +25,22 @@
 // - year of birth
 // and have a method called sayHi which prints to console a sentence
 // combining them.
+class Person {
+    constructor(first, last, year) {
+        this.first = first;
+        this.last = last;
+        this.year = year;
+    }
+    sayHi() {
+        console.log('Hi, I am ' + this.first + ' ' + this.last +
+        ', I was born in ' + this.year);
+    }
+}
 
 // b. Instantiate the class in a new object called brendan (this object
 // might sound familiar to you at this point). Then, invoke the sayHi method.
-
+brendan = new Person('Brendan', 'Eich', 1961);
+brendan.sayHi()
 
 // EXERCISE 2. Setters and getters.
 ///////////////////////////////////
@@ -46,7 +58,20 @@
 // b. Good. Now, copy the Person class you created in EXERCISE 1, but
 // this time add a getter method that returns the full name of brendan.
 // Hint: simply add the keyword get in front of the method.
-
+class Person {
+    constructor(first, last, year) {
+        this.first = first;
+        this.last = last;
+        this.year = year;
+    }
+    sayHi() {
+        console.log('Hi, I am ' + this.first + ' ' + this.last +
+        ', I was born in ' + this.year);
+    }
+    get fullName() {
+        return this.first + ' ' + this.last;
+    }
+}
 // Then try it out.
 brendan = new Person('Brendan', 'Eich', 1961);
 brendan.fullName;
@@ -66,6 +91,20 @@ brendan.fullName;
 // b. Good. Now, you can define the Person class again. This time add a
 // a static method that returns the number of legs named numberOfLegs.
 // Hint: just add the keyword static in front of the method.
+class Person {
+    constructor(first, last, year) {
+        this.first = first;
+        this.last = last;
+        this.year = year;
+    }
+    sayHi() {
+        console.log('Hi, I am ' + this.first + ' ' + this.last +
+        ', I was born in ' + this.year);
+    }
+    static numberOfLegs() {
+        return 2;
+    }
+}
 
 // Invoke the method directly on the class.
 Person.numberOfLegs();

@@ -14,7 +14,7 @@
 // from the scope, and it specifically refers to the value of the `this`
 // keyword. JavaScript, unlike most other programming languages, changes
 // the value of `this` dynamically, depending on the position of the code
-// in the hierachy of functions. Pretty confusing? You are right and you
+// in the hierachy of functions. Pretty confusing? You are right and you know
 // who to thank! Let's see few examples to understand.
 
 // Let's create a class representing a shy person, who hesitates 1 second
@@ -49,10 +49,24 @@ brendan.sayHi();
 // Write function sayHi2 so that sayHi method returns the correct string.
 
 // a. Use the old-timer that = this trick.
+brendan.sayHi2 = function() {
+    let that = this;
+    console.log('I will tell you who I am in a second.');
+    setTimeout(function() {
+        console.log('Hi, I am ' + that.first);
+    }, 1000)
+}
 
-
+brendan.sayHi2();
 // b. Use the arrow function and this.
+brendan.sayHi3 = function() {
+    console.log('I will tell you who I am in a second.')
+    setTimeout(() => {
+        console.log('Hi, I am ' + this.first);
+    }, 1000);
+}
 
+brendan.sayHi3();
 // EXERCISE 2. Bonus. Apply and Call.
 /////////////////////////////////////
 
